@@ -2,7 +2,7 @@ name: model-supervisé RL
 on: [push]
 jobs:
   run:
-    runs-on: [continuumio/miniconda:4.5.4]
+    runs-on: [continuumio/miniconda]
     container: docker://hhurchand/bostonhousing_dockerv1:latest
     steps:
       - uses: actions/checkout@v2
