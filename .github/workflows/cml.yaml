@@ -1,0 +1,20 @@
+name: model-supervisé
+on: [push]
+jobs:
+  run:
+  # comment added
+    runs-on:[ubuntu-latest]
+    container: docker://hhurchand/bostonhousing_dockerv1
+    steps:
+      -uses:actions/checkout@v2
+      -name:cml_run
+       env:
+        repo_token:${{secrets.GITHUB_TOKEN}}
+       run: |
+        # Your ML workflow goes here
+        pip install -r requirements.txt
+        python BostonData.py
+        # write your CML report
+        echo "## Metriques" >> report.md
+        cat metrics.txt >> report.md
+        ## new comments added
