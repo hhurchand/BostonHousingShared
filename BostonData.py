@@ -21,7 +21,7 @@ from sklearn.datasets import load_boston
 data = load_boston(return_X_y=False)
 path = data.filename
 df = pd.read_csv(path,header=1)
-df.to_csv(r'C:\Users\hhurc\BostonData\BostonData.csv')
+df.to_csv('BostonData.csv')
 
 
 # ## EDA
