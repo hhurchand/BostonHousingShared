@@ -4,7 +4,7 @@ jobs:
   run:
   # comment added
     runs-on:[ubuntu-latest]
-    container: docker://hhurchand/hurryboston2
+    container:docker://hhurchand/hurryboston2
     steps:
       -uses:actions/checkout@v2
       -name:cml_run
