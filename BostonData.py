@@ -42,6 +42,8 @@ df_correl = df.corr()
 
 
 import seaborn as sns
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 #plt.figure(figsize=(12,10))
 #sns.heatmap(df_correl,annot=True)
