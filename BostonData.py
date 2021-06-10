@@ -43,8 +43,8 @@ df_correl = df.corr()
 
 import seaborn as sns
 import matplotlib.pyplot as plt
-plt.figure(figsize=(12,10))
-sns.heatmap(df_correl,annot=True)
+#plt.figure(figsize=(12,10))
+#sns.heatmap(df_correl,annot=True)
 
 
 # In[6]:
