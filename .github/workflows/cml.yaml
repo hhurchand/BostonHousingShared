@@ -1,11 +1,9 @@
-name: model-supervisé
-on: [push]
 name: model-supervisé RL
 on: [push]
 jobs:
   run:
     runs-on: [ubuntu-latest]
-    container: docker://hhurchand/hurryboston2:latest
+    container: docker://hhurchand/boston_housing:latest
     steps:
       - uses: actions/checkout@v2
       - name: cml_run
@@ -16,5 +14,3 @@ jobs:
           pip install -r requirements.txt
           python BostonData.py
           # Write your CML report
-          echo "## Metriques:" >> report.md
-          cat metrics.txt >> report.md
