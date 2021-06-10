@@ -41,7 +41,6 @@ df_correl = df.corr()
 # In[5]:
 
 
-import seaborn as sns
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
