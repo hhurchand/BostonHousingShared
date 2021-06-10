@@ -14,5 +14,3 @@ jobs:
           pip install -r requirements.txt
           python BostonData.py
           # Write your CML report
-          echo "## Metriques:" >> report.md
-          cat metrics.txt >> report.md
