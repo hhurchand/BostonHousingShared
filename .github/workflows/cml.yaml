@@ -1,7 +1,5 @@
 name: model-supervisé
 on: [push]
-name: model-supervisé RL
-on: [push]
 jobs:
   run:
     runs-on: [ubuntu-latest]
