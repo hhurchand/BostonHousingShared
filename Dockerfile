@@ -1,15 +1,25 @@
-FROM continuumio/miniconda:4.5.4
+FROM python:3.7.0
+LABEL maintainer="Albert Franzi"
 
-RUN apt-get update \
-    && apt-get install -y python3-pip \
-    && pip3 install --upgrade pip
+ENV MLFLOW_HOME /opt/mlflow
+ENV MLFLOW_VERSION 0.7.0
+ENV SERVER_PORT 5000
+ENV SERVER_HOST 0.0.0.0
+ENV FILE_STORE ${MLFLOW_HOME}/fileStore
+ENV ARTIFACT_STORE ${MLFLOW_HOME}/artifactStore
 
-RUN pip3 install numpy pandas matplotlib seaborn plotly sklearn mlflow
+RUN pip install mlflow==${MLFLOW_VERSION} && \
+    mkdir -p ${MLFLOW_HOME}/scripts && \
+    mkdir -p ${FILE_STORE} && \
+    mkdir -p ${ARTIFACT_STORE}
 
-WORKDIR /app
+COPY scripts/run.sh ${MLFLOW_HOME}/scripts/run.sh
+RUN chmod +x ${MLFLOW_HOME}/scripts/run.sh
 
-COPY BostonData.py /app
-COPY data/DonneeBoston/* /app/data/DonneeBoston/
+EXPOSE ${SERVER_PORT}/tcp
 
-CMD ["python3","BostonData.py"]
+VOLUME ["${MLFLOW_HOME}/scripts/", "${FILE_STORE}", "${ARTIFACT_STORE}"]
 
+WORKDIR ${MLFLOW_HOME}
+
+ENTRYPOINT ["./scripts/run.sh"]
