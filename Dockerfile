@@ -1,8 +1,8 @@
-FROM python:3.7.0
-LABEL maintainer="Albert Franzi"
+FROM python:3.9.0
+LABEL maintainer="Hurry Youssef Douglas"
 
 ENV MLFLOW_HOME /opt/mlflow
-ENV MLFLOW_VERSION 0.7.0
+ENV MLFLOW_VERSION 1.18.0
 ENV SERVER_PORT 5000
 ENV SERVER_HOST 0.0.0.0
 ENV FILE_STORE ${MLFLOW_HOME}/fileStore
