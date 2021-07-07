@@ -12,5 +12,9 @@ jobs:
         run: |
           # Your ML workflow goes here
           pip install -r requirements.txt
-          python BostonData.py
-          # Write your CML report
+          entry_points:
+            main:
+              parameters:
+                alpha: {type: float, default : 0.4}
+                l1_ratio: {type: float, default: 0.1}
+                command: "python train.py {alpha} {l1_ratio}"
