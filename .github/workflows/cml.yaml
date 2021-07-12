@@ -3,7 +3,7 @@ on: [push]
 jobs:
   run:
     runs-on: [ubuntu-latest]
-    container: docker://hhurchand/boston_housingv1:latest
+    container: docker://hhurchand/hurryboston2:latest
     steps:
       - uses: actions/checkout@v2
       - name: cml_run
